@@ -54,7 +54,16 @@ const init = async () => {
       // if file exist then read file and append data
       const beforeString = fileData.toString();
       const beforeData = JSON.parse(beforeString);
-      const newComment = uniqBy([...beforeData, ...commentData], "id");
+
+      let newComment = [...beforeData, ...commentData];
+
+      // remove duplicate
+      newComment = uniqBy(newComment, "id");
+
+      // sort by id
+      newComment = newComment.sort((a, b) => {
+        return a.id - b.id;
+      });
 
       console.log(`数据 ${newComment.length}`);
 
