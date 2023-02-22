@@ -6,7 +6,8 @@
     "start": "tsc && node lib/index.js",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "prettier": "prettier --write ."
   },
   "license": "MIT",
   "dependencies": {
@@ -16,5 +17,8 @@
     "node-fetch": "2.6.1",
     "simple-git": "^3.14.1",
     "typescript": "^4.8.2"
+  },
+  "devDependencies": {
+    "prettier": "2.8.4"
   }
 }
