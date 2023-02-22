@@ -22,6 +22,8 @@ jobs:
         run: npm run start
       - name: Current time
         run: date +%Y-%m-%d\ %H:%M:%S
+      - name: Prettier
+        run: npm run prettier
       - name: Commit changes
         run: |
           git config --local user.email "exposir@foxmail.com"
