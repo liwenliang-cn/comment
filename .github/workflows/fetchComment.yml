@@ -3,6 +3,7 @@ name: Fetch_Comment
 on:
   schedule:
     - cron: "*/1 * * * *" # 每分钟执行一次
+    - cron: "*/5 * * * *" # 每5分钟执行一次
   workflow_dispatch:
 
 jobs:
