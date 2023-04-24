@@ -12,7 +12,7 @@ jobs:
       TZ: Asia/Shanghai
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -34,13 +34,13 @@ jobs:
       - name: Format code with Prettier for staged files only
         run: |
           git add .
-          git diff --name-only --staged --diff-filter=d | xargs -I {} npx prettier --write {} || true      
+          git diff --name-only --staged --diff-filter=d | xargs -I {} npx prettier --write {} || true
       - name: Commit and push changes
         run: |
           git config --local user.email "exposir@foxmail.com"
           git config --local user.name "exposir"
           git pull
-          git add .
+          git add -u
           git status
           git commit -m "Update Comment - $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
       - name: Push changes
