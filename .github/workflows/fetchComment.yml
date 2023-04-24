@@ -2,30 +2,31 @@ name: Fetch_Comment
 
 on:
   schedule:
-    - cron: "*/1 * * * *" # 每分钟执行一次
-    - cron: "*/3 * * * *" # 每3分钟执行一次
+    - cron: "*/2 * * * *" # 每3分钟执行一次
   workflow_dispatch:
 
 jobs:
   fetch_news:
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
     steps:
-      - name: Set time zone
-        run: sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: "16.x"
+          node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - name: Npm install
+      - name: Install dependencies
         run: npm install
-      - name: Run Project
+      - name: Run script
         run: npm run start
-      - name: Current time
+      - name: Display current time
         run: date +%Y-%m-%d\ %H:%M:%S
-      - name: Prettier
+      - name: Format code with Prettier
         run: npm run prettier
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
           git config --local user.email "exposir@foxmail.com"
           git config --local user.name "exposir"
@@ -36,5 +37,5 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.ACTION_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
