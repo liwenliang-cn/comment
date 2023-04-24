@@ -2,7 +2,7 @@ name: Fetch_Comment
 
 on:
   schedule:
-    - cron: "*/2 * * * *" # 每3分钟执行一次
+    - cron: "*/2 * * * *" # 每2分钟执行一次
   workflow_dispatch:
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
           git pull
           git add .
           git status
-          git commit -m "Update Comment" || echo "No changes to commit"
+          git commit -m "Update Comment - $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
