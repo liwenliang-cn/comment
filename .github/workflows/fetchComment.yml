@@ -31,10 +31,10 @@ jobs:
         run: npm run start
       - name: Display current time
         run: date +%Y-%m-%d\ %H:%M:%S
-      - name: Format code with Prettier for modified files only
+      - name: Format code with Prettier for staged files only
         run: |
           git add .
-          git diff --name-only --staged --diff-filter=d | xargs -I {} npx prettier --write {}
+          git diff --name-only --staged --diff-filter=d | xargs -I {} npx prettier --write {} || true      
       - name: Commit and push changes
         run: |
           git config --local user.email "exposir@foxmail.com"
