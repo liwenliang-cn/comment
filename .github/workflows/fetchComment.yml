@@ -31,8 +31,9 @@ jobs:
         run: npm run start
       - name: Display current time
         run: date +%Y-%m-%d\ %H:%M:%S
-      - name: Format code with Prettier
-        run: npm run prettier
+      - name: Format code with Prettier for new files only
+        run: |
+          git diff --name-only --cached --diff-filter=d | xargs -I {} npx prettier --write {}
       - name: Commit and push changes
         run: |
           git config --local user.email "exposir@foxmail.com"
