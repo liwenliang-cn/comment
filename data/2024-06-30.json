@@ -2308,5 +2308,30 @@
     "like_counts": 2,
     "liked": false,
     "recordTime": "2024-06-30 下午 03:23 星期日"
+  },
+  {
+    "id": 5050987527536826,
+    "created_at": "3分钟前",
+    "source": "来自上海",
+    "user": {
+      "id": 1996489187,
+      "screen_name": "喜爱麦子",
+      "profile_image_url": "https://tva2.sinaimg.cn/crop.0.0.180.180.180/770001e3jw1e8qgp5bmzyj2050050aa8.jpg?KID=imgbed,tva&Expires=1719743733&ssig=%2Bumq1dHo30",
+      "verified": false,
+      "verified_type": -1,
+      "followers_count": "173",
+      "followers_count_str": "173",
+      "friends_count": 75,
+      "mbtype": 0,
+      "svip": 0,
+      "profile_url": "https://m.weibo.cn/u/1996489187?",
+      "remark": "",
+      "following": false,
+      "follow_me": false
+    },
+    "text": "李医生，下午好！",
+    "like_counts": 0,
+    "liked": false,
+    "recordTime": "2024-06-30 下午 03:32 星期日"
   }
 ]
